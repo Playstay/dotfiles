@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = "let g:ale_fixers={'ruby':['rubocop'],}"
