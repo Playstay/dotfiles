@@ -1,0 +1,8 @@
+if flex $1;
+then
+	if cc lex.yy.c;
+	then
+		./a.out
+	fi
+fi
+

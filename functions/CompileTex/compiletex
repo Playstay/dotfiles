@@ -1,0 +1,5 @@
+platex $1
+dvi=${1//.tex/.dvi}
+pdf=${1//.tex/.pdf}
+dvipdf ${dvi}
+open ${pdf}
