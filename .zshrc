@@ -83,7 +83,7 @@ precmd(){
 	PROMPT="%n${message}%{%(?.%F{green}.%F{red})%}%#%f"
 }
 #Define plugin (zplug)
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 
 #zplug install
