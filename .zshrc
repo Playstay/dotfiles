@@ -42,7 +42,7 @@ alias -s py=RunPython
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
-#Export LSCOLORS (used by ls -G)
+#Export LSCOLORS for Mac OS X (used by ls -G)
 export LSCOLORS=xefxcxdxbxegedabagacad
 
 #export variables for Ruby
@@ -96,7 +96,8 @@ fi
 
 zplug load --verbose
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Please comment out unless using Mac OS
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
