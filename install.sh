@@ -1,1 +1,4 @@
-ruby ./bin/install.rb
+#!/usr/bin/sh
+cd ./bin
+ruby install.rb $@
+cd ../

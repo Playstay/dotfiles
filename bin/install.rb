@@ -10,12 +10,16 @@ require 'fileutils'
 def link_files(source,destination,fileutil, ignore_files)
   source.each_child do |dir|
     next if ignore_files.include?(dir.basename.to_s)
+
     if dir.directory? then
       link_files(dir, destination,fileutil, ignore_files)
       next
     end
+
     # FIXME: Pathnameインスタンスが親ディレクトリのため仮想のディレクトリを指定しないといけない
-    p dir.expand_path(destination + './hoge')
+    target_dir = dir.expand_path(destination + './hoge')
+    fileutil.makedirs(target_dir.parent.to_s,verbose:true) unless target_dir.exist?
+    fileutil.ln_s(dir.expand_path.to_s,target_dir.to_s,verbose:true)
   end
 end
 
