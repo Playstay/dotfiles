@@ -7,16 +7,24 @@ require 'optparse'
 require 'pathname'
 require 'fileutils'
 
-BASE_DIR = Pathname.pwd.parent
-
-def link_files(source,destination,fileutil)
+def link_files(source,destination,fileutil, ignore_files)
   source.each_child do |dir|
-    if dir.directory? do
-      link_files(dir, destination,fileutil)
-      continue
+    next if ignore_files.include?(dir.basename.to_s)
+    if dir.directory? then
+      link_files(dir, destination,fileutil, ignore_files)
+      next
     end
+    # FIXME: Pathnameインスタンスが親ディレクトリのため仮想のディレクトリを指定しないといけない
+    p dir.expand_path(destination + './hoge')
   end
 end
+
+def ignore_list(additional = nil)
+  ignore_files = Pathname.new('./.default_ignore').readlines(chomp:true)
+  ignore_files.append(additional) unless additional.nil?
+  ignore_files
+end
+
 opt = OptionParser.new
 
 dest_dir = Pathname(ENV['HOME'])
@@ -32,6 +40,9 @@ end
 
 opt.parse(ARGV)
 
-source_dir = Pathname.pwd.parent
+# 絶対パスでは実装が難しいので相対パスで実装
+source_dir = Pathname('../')
+
+link_files(source_dir, dest_dir,fileutil, ignore_list)
 
 
