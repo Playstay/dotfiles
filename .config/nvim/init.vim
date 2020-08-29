@@ -9,6 +9,7 @@ syntax on
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " edit
+set tabstop=4
 set expandtab
 set smartindent
 

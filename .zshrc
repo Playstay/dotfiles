@@ -73,7 +73,10 @@ RPROMPT="[%F{magenta}%~%f]"
 #PROMPT="%n@%m%{%(?.$fg[green].$fg[red])%}%#%{$reset_color%}"
 #Show git branch on console
 ##Setting vcs_info view
-zstyle ':vcs_info:*' formats "(%F{green}%b%f%)" 
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "(%c%u%F{green}%b%f%)" 
 zstyle ':vcs_info:*' actionformats "(* %F{green}%b%f[%F{red}%a%f]%)" 
 
 precmd(){ 
