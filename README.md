@@ -7,6 +7,8 @@ dotfiles管理
 	- neovimのパッケージマネージャの管理
 * 実行後にインストールが必要になるもののリストアップ
 	- msgpack
-    - peco
     - zplug
+    - fzf
+* neovimで必要になるpython用パッケージの出力
+        - neovim
 * インストールに必要なもののチェック

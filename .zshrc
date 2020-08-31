@@ -64,8 +64,8 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors di=44 ln=35 ex=32
 #Define shell function
 
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+#zle -N peco-history-selection
+#bindkey '^R' peco-history-selection
 
 #Prompt Settigs
 #RPROMPT="[%{$fg[magenta]%}%~%{$reset_color%}]"
@@ -113,3 +113,5 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 #for neovim:dein.vim
 export XDG_CONFIG_HOME=~/.config
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
