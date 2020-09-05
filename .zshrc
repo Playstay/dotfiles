@@ -1,6 +1,7 @@
 # Created by newuser for 5.2
 # Initialize zplug
 source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 #autoload self made plugin
 fpath=(~/.zsh/functions/*(N-/) $fpath)
