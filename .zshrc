@@ -24,6 +24,9 @@ alias la='ls -a'
 alias lal='ls -al'
 # alias (git)
 alias ga='git add'
+alias gu='git add -u'
+alias gd='git diff'
+alias gs='git status'
 #To Use Ruby in rbenv
 alias gem='rbenv exec gem'
 
