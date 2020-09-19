@@ -5,7 +5,7 @@
 " visual
 set title
 set number
-syntax on
+syntax on 
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " edit
