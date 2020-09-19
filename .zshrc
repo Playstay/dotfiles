@@ -60,6 +60,8 @@ setopt PROMPT_SUBST
 #Define Completion highlight
 autoload -U compinit
 compinit
+#Key bind for reverse complete
+bindkey '^[[Z' reverse-menu-complete
 zstyle ':completion:*:default' menu select=2
 #Completion colors setting
 zstyle ':completion:*' list-colors di=44 ln=35 ex=32
