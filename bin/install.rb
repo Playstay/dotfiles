@@ -26,7 +26,9 @@ end
 def copy_file(destination, dir, fileutil)
   # FIXME: Pathnameインスタンスが親ディレクトリのため仮想のディレクトリを指定しないといけない
   target_dir = dir.expand_path(destination + './hoge')
-  fileutil.makedirs(target_dir.parent.to_s, **LN_OPTION) unless target_dir.exist?
+  unless target_dir.exist?
+    fileutil.makedirs(target_dir.parent.to_s, **LN_OPTION)
+  end
   fileutil.ln_s(dir.expand_path.to_s, target_dir.to_s, **LN_OPTION)
 end
 
