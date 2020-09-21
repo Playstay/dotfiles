@@ -12,6 +12,7 @@ LN_OPTION = { verbose: true }.freeze
 def link_files(source, destination, fileutil, ignore_files)
   source.each_child do |dir|
     next if ignore_files.include?(dir.basename.to_s)
+    next if dir.basename.to_s.end_with?('~')
 
     if dir.directory?
       link_files(dir, destination, fileutil, ignore_files)

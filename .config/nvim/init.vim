@@ -5,7 +5,7 @@
 " visual
 set title
 set number
-syntax on
+syntax on 
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " edit
@@ -20,6 +20,9 @@ set hlsearch
 if &compatible
   set nocompatible
 endif
+
+" Ex command
+set history=200
 
 " dein.vimインストール時に指定したディレクトリをセット
 let s:dein_dir = expand('~/.cache/dein')

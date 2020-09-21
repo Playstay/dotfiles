@@ -24,6 +24,9 @@ alias la='ls -a'
 alias lal='ls -al'
 # alias (git)
 alias ga='git add'
+alias gu='git add -u'
+alias gd='git diff'
+alias gs='git status'
 #To Use Ruby in rbenv
 alias gem='rbenv exec gem'
 
@@ -60,6 +63,8 @@ setopt PROMPT_SUBST
 #Define Completion highlight
 autoload -U compinit
 compinit
+#Key bind for reverse complete
+bindkey '^[[Z' reverse-menu-complete
 zstyle ':completion:*:default' menu select=2
 #Completion colors setting
 zstyle ':completion:*' list-colors di=44 ln=35 ex=32
