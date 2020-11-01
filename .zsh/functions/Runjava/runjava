@@ -1,5 +1,7 @@
-className=$1
-className=${className%.java}
-javac $1
-shift
-java $className $@
+Runjava(){
+        className=$1
+        className=${className%.java}
+        javac $1
+        shift
+        java $className $@
+}

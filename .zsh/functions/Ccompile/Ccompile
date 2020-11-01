@@ -1,7 +1,10 @@
 #gcc $1;
 #./a.out
-if  gcc $1 
-then
-	shift
-	./a.out $@
-fi
+
+Ccomplie(){
+        if  gcc $1 
+        then
+          shift
+          ./a.out $@
+        fi
+}
