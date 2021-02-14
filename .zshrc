@@ -52,6 +52,8 @@ export LSCOLORS=xefxcxdxbxegedabagacad
 #export variables for Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+# for homebrew
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 
 #Define Options
@@ -106,18 +108,22 @@ fi
 zplug load --verbose
 
 # Please comment out unless using Mac OS
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 eval "$(pyenv init -)"
 
 #for mizar
-export MIZFILES=/usr/local/share/mizar
-export PATH="/usr/local/sbin:$PATH"
+#export MIZFILES=/usr/local/share/mizar
+#export PATH="/usr/local/sbin:$PATH"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 #for neovim:dein.vim
 export XDG_CONFIG_HOME=~/.config
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
+function gi() { curl -sLw "\n" https://gitignore.io/api/$@ ;}
