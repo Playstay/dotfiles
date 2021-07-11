@@ -16,9 +16,17 @@ autoload -Uz peco-history-selection
 autoload -Uz vcs_info
 autoload -U colors 
 
+# for Mac OS
+# If you want to apply only Mac OS, write on this block.
+if [ `uname` = 'Darwin' ] ;then
+        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+        alias ls='ls -G'
+else
+        alias ls='ls --color=auto'
+fi
+
 # Define alias
 ## alias (ls)
-alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -al'
@@ -32,7 +40,6 @@ alias gem='rbenv exec gem'
 
 # alias (vim)
 alias vim='nvim'
-
 
 # Define extension alias
 alias -s {c,cpp}=Ccompile
@@ -52,10 +59,6 @@ export LSCOLORS=xefxcxdxbxegedabagacad
 #export variables for Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
-# for homebrew
-if [ `uname` = 'Darwin' ] ;then
-        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-fi
 
 
 #Define Options
