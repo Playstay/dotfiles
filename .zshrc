@@ -53,7 +53,9 @@ export LSCOLORS=xefxcxdxbxegedabagacad
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 # for homebrew
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+if [ `uname` = 'Darwin' ] ;then
+        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+fi
 
 
 #Define Options
