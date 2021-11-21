@@ -6,6 +6,7 @@
 set title
 set number
 syntax on 
+set cursorline
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " edit
@@ -23,6 +24,7 @@ endif
 
 " Ex command
 set history=200
+set wildmenu
 
 " dein.vimインストール時に指定したディレクトリをセット
 let s:dein_dir = expand('~/.cache/dein')
