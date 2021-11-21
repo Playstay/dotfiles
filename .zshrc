@@ -115,8 +115,9 @@ zplug load --verbose
 # Please comment out unless using Mac OS
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
+# export PYENV_ROOT="${HOME}/.pyenv"
+# export PATH="${PYENV_ROOT}/bin:${PATH}"
+export PATH="/usr/local/sbin:$PATH"
 eval "$(pyenv init -)"
 
 #for mizar
