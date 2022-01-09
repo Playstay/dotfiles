@@ -1,4 +1,5 @@
 [[plugins]]
+
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
@@ -22,6 +23,32 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+repo = 'easymotion/vim-easymotion'
+if = '''!exists('g:vscode')'''
+hook_add = '''
+ " nmap <Leader> <Plug>(easymotion-prefix)
+ let g:EasyMotion_do_mapping = 0 " デフォルトキーマッピングの無効化
+ let g:EasyMotion_smartcase = 1
+ nmap <Leader>s <Plug>(easymotion-bd-f2)
+ map <Leader>w <Plug>(easymotion-overwin-w)
+ map <Leader>j <Plug>(easymotion-j)
+ map <Leader>k <Plug>(easymotion-k)
+'''
+
+[[plugins]]
+repo = 'asvetliakov/vim-easymotion'
+name = 'vsvim-easymotion'
+if = '''exists('g:vscode')'''
+hook_add = '''
+ nmap <Leader> <Plug>(easymotion-prefix)
+ let g:EasyMotion_do_mapping = 0 " デフォルトキーマッピングの無効化
+ let g:EasyMotion_smartcase = 1
+ nmap s <Plug>(easymotion-bd-f2)
+ map <Leader>w <Plug>(easymotion-w)
+ map <Leader>j <Plug>(easymotion-j)
+ map <Leader>k <Plug>(easymotion-k)
+'''
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_post_update = '''
   if has('win32')
@@ -35,3 +62,7 @@ hook_post_update = '''
   endif
   let g:dein#plugin.build = cmd
 '''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = 'set helplang=ja'
