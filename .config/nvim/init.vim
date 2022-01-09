@@ -18,6 +18,8 @@ set smartindent
 " search
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 if &compatible
   set nocompatible
