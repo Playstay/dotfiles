@@ -19,10 +19,10 @@ autoload -U colors
 # for Mac OS
 # If you want to apply only Mac OS, write on this block.
 if [ `uname` = 'Darwin' ] ;then
-        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-        alias ls='ls -G'
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+  alias ls='ls -G'
 else
-        alias ls='ls --color=auto'
+  alias ls='ls --color=auto'
 fi
 
 # Define alias
@@ -93,10 +93,10 @@ zstyle ':vcs_info:*' formats "(%c%u%F{green}%b%f%)"
 zstyle ':vcs_info:*' actionformats "(* %F{green}%b%f[%F{red}%a%f]%)" 
 
 precmd(){ 
-	local message
-	LANG=en_US.UTF-8 vcs_info
-	[[ -n "${vcs_info_msg_0_}" ]] && message="${vcs_info_msg_0_}"
-	PROMPT="%n${message}%{%(?.%F{green}.%F{red})%}%#%f"
+  local message
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "${vcs_info_msg_0_}" ]] && message="${vcs_info_msg_0_}"
+  PROMPT="%n${message}%{%(?.%F{green}.%F{red})%}%#%f"
 }
 #Define plugin (zplug)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -142,13 +142,13 @@ function gi() { curl -sLw "\n" https://gitignore.io/api/$@ ;}
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
+  if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/opt/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/opt/anaconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
