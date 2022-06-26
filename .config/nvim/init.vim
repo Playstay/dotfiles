@@ -15,6 +15,15 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
+" ime auto change
+" for mac and VSCode
+if exists('g:vscode')
+  if has('mac') && executable('im-select')
+    autocmd InsertLeave * :call system('im-select com.apple.keylayout.ABC')
+    autocmd CmdlineLeave * :call system('im-select com.apple.keylayout.ABC')
+  endif
+endif
+
 " search
 set incsearch
 set hlsearch
@@ -66,3 +75,4 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+

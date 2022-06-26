@@ -40,10 +40,9 @@ repo = 'asvetliakov/vim-easymotion'
 name = 'vsvim-easymotion'
 if = '''exists('g:vscode')'''
 hook_add = '''
- nmap <Leader> <Plug>(easymotion-prefix)
  let g:EasyMotion_do_mapping = 0 " デフォルトキーマッピングの無効化
  let g:EasyMotion_smartcase = 1
- nmap s <Plug>(easymotion-bd-f2)
+ nmap <Leader>s <Plug>(easymotion-bd-f2)
  map <Leader>w <Plug>(easymotion-w)
  map <Leader>j <Plug>(easymotion-j)
  map <Leader>k <Plug>(easymotion-k)

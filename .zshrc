@@ -118,7 +118,11 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # export PYENV_ROOT="${HOME}/.pyenv"
 # export PATH="${PYENV_ROOT}/bin:${PATH}"
 export PATH="/usr/local/sbin:$PATH"
-eval "$(pyenv init -)"
+
+# initialize pyenv
+if (which pyenv > dev/null 2>&1); then
+  eval "$(pyenv init -)"
+fi
 
 #for mizar
 #export MIZFILES=/usr/local/share/mizar
