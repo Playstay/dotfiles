@@ -120,7 +120,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="/usr/local/sbin:$PATH"
 
 # initialize pyenv
-if (which pyenv > dev/null 2>&1); then
+if (which pyenv > /dev/null 2>&1); then
   eval "$(pyenv init -)"
 fi
 
