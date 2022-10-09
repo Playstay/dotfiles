@@ -1,4 +1,6 @@
 # Created by newuser for 5.2
+# change keybind to Vim
+bindkey -v
 # Initialize zplug
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
