@@ -23,7 +23,14 @@ autoload -U colors
 if [ `uname` = 'Darwin' ] ;then
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
   alias ls='ls -G'
+  echo 'export PATH="/opt/homebrew/opt/bison/bin:$PATH"' >> ~/.zshrc
+  # initialize rust
+  export PATH="$HOME/.cargo/env:$PATH"
+  export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+  #Export LSCOLORS for Mac OS X (used by ls -G)
+  export LSCOLORS=xefxcxdxbxegedabagacad
 else
+# for Other OS
   alias ls='ls --color=auto'
 fi
 
@@ -55,8 +62,6 @@ alias -s py=RunPython
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
-#Export LSCOLORS for Mac OS X (used by ls -G)
-export LSCOLORS=xefxcxdxbxegedabagacad
 
 #export variables for Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
@@ -77,15 +82,9 @@ bindkey '^[[Z' reverse-menu-complete
 zstyle ':completion:*:default' menu select=2
 #Completion colors setting
 zstyle ':completion:*' list-colors di=44 ln=35 ex=32
-#Define shell function
-
-#zle -N peco-history-selection
-#bindkey '^R' peco-history-selection
 
 #Prompt Settigs
-#RPROMPT="[%{$fg[magenta]%}%~%{$reset_color%}]"
 RPROMPT="[%F{magenta}%~%f]"
-#PROMPT="%n@%m%{%(?.$fg[green].$fg[red])%}%#%{$reset_color%}"
 #Show git branch on console
 ##Setting vcs_info view
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -100,6 +99,7 @@ precmd(){
   [[ -n "${vcs_info_msg_0_}" ]] && message="${vcs_info_msg_0_}"
   PROMPT="%n${message}%{%(?.%F{green}.%F{red})%}%#%f"
 }
+
 #Define plugin (zplug)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
@@ -117,8 +117,6 @@ zplug load --verbose
 # Please comment out unless using Mac OS
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# export PYENV_ROOT="${HOME}/.pyenv"
-# export PATH="${PYENV_ROOT}/bin:${PATH}"
 export PATH="/usr/local/sbin:$PATH"
 
 # initialize pyenv
@@ -126,18 +124,12 @@ if (which pyenv > /dev/null 2>&1); then
   eval "$(pyenv init -)"
 fi
 
-#for mizar
-#export MIZFILES=/usr/local/share/mizar
-#export PATH="/usr/local/sbin:$PATH"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 #for neovim:dein.vim
 export XDG_CONFIG_HOME=~/.config
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof
-# fi
 function gi() { curl -sLw "\n" https://gitignore.io/api/$@ ;}
 
 # >>> conda initialize >>>
