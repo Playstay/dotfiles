@@ -4,7 +4,10 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
-hook_add = "let g:ale_fixers={'ruby':['rubocop'],}"
+hook_add = '''
+ let g:ale_fixers={'ruby':['rubocop'],'java':['google_java_format'],}
+ let g:ale_fix_on_save = 1
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

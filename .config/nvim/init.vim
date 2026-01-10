@@ -17,12 +17,10 @@ set expandtab
 set smartindent
 
 " ime auto change
-" for mac and VSCode
-if exists('g:vscode')
-  if has('mac') && executable('im-select')
-    autocmd InsertLeave * :call system('im-select com.apple.keylayout.ABC')
-    autocmd CmdlineLeave * :call system('im-select com.apple.keylayout.ABC')
-  endif
+" for mac
+if has('mac') && executable('im-select')
+  autocmd InsertLeave * :call system('im-select com.apple.keylayout.ABC')
+  autocmd CmdlineLeave * :call system('im-select com.apple.keylayout.ABC')
 endif
 
 " search
